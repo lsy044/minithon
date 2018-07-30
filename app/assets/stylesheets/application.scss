@@ -1,0 +1,49 @@
+@import "bootstrap";
+
+//----------------참여방법 소개 css----------------
+.imgbox{
+}
+
+.howto_image{
+    width:100px;
+    height:100px;
+}
+
+.howto_text{
+    padding-left: 10px;
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.howto_box{
+    margin: 15px;
+    display: flex;
+}
+
+.max_cont{
+    display: block;
+}
+
+@media screen and (min-width: 760px){
+    .max_cont{
+        display: flex;
+        justify-content: space-around;
+    }
+    .howto_box{
+        height: 260px;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 150px;
+        display: inline-block;
+    }
+    .howto_text{
+        padding-left: 0px;
+        text-align: center;
+    }
+    .howto_image{
+        width: 100%;
+        height: 160px;
+    }
+}
+
+//--------------참여방법 소개 css 끝---------------

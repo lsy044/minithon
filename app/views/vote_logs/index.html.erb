@@ -1,31 +1,77 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    <br>
+    <br>
+    <h1 class="text-center">고려대학교 총학생회 선거 로또</h1>
+    <br>
+    <%# --------------참여방법 소개---------------- %>
+    <h3>"어떻게 참여하나요?"</h3>
+    <br>
+    <div class="max_cont">
+    <div class="howto_box">
+      <div class="imgbox">
+        <%=image_tag "voting.jpg", class:"howto_image"%>
+      </div>
+      <div class="howto_text">
+        선거를 즐기는 사진을 찍으세요!
+        -투표소가 배경인 사진
+        -선거 현장의 생생한 사진
+      </div>
+    </div>
 
-<h1>Vote Logs</h1>
+    <div class="howto_box">
+      <div class="imgbox">
+        <%=image_tag "voting.jpg", class:"howto_image"%>
+      </div>
+      <div class="howto_text">
+        응모는 선거날에 가능하며
+        1인 1투표를 위하여
+        인증이 필요합니다.
+      </div>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Studentid</th>
-      <th>Name</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="howto_box">
+      <div class="imgbox">
+        <%=image_tag "voting.jpg", class:"howto_image"%>
+      </div>
+      <div class="howto_text">
+        사진과 이름, 학번을 등록하여
+        응모하면 끝!
+        ..
+      </div>
+    </div>
+    </div>
 
-  <tbody>
-    <% @vote_logs.each do |vote_log| %>
+    <%# -------참여방법소개 끝----------- %>
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Vote Logs</h1>
+
+  <table>
+    <thead>
       <tr>
-        <td><%= vote_log.studentID %></td>
-        <td><%= vote_log.name %></td>
-        <td><%= vote_log.image %></td>
-        <td><%= link_to 'Show', vote_log %></td>
-        <td><%= link_to 'Edit', edit_vote_log_path(vote_log) %></td>
-        <td><%= link_to 'Destroy', vote_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Studentid</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @vote_logs.each do |vote_log| %>
+        <tr>
+          <td><%= vote_log.studentID %></td>
+          <td><%= vote_log.name %></td>
+          <td><%= vote_log.image %></td>
+          <td><%= link_to 'Show', vote_log %></td>
+          <td><%= link_to 'Edit', edit_vote_log_path(vote_log) %></td>
+          <td><%= link_to 'Destroy', vote_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Vote Log', new_vote_log_path %>
+  <br>
+
+  <%= link_to 'New Vote Log', new_vote_log_path %>
+</div>
