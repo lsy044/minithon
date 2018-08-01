@@ -1,4 +1,27 @@
 @import "bootstrap";
+//------------------header--------------------
+
+
+@font-face { font-family: 'WONTitle'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONTitle.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+.headerfont{
+    font-family: "WONTitle";
+    font-size: 20px;
+    line-height: 35px;
+    color: black;
+}
+
+.shape{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+//------------------header 끝-----------------
+
+
 //------------------main-----------------------
 .votenum_box{
     width: 100%;
@@ -10,12 +33,12 @@
 .votenum_text{
     color: #707070;
     text-align: center;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 //인원수 counter
 #counter1{
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 500;
 
 }
@@ -25,9 +48,36 @@
     background-color: white;
 }
 
+
+//----------------main 끝-------------------
+
 //----------------참여방법 소개 css----------------
 
+.howto_img_box{
+    height: 110.5px;
+    width: 100%;
+    margin-bottom: 35px;
+}
 
+.howto_img{
+    height: 100%;
+    width: 100%;
+
+}
+
+.howto_bar{
+    width: 40px;
+    height: 1px;
+    background-color: #A13030;
+    margin-bottom: 10.5px;
+}
+
+.howto_text_title{
+    font-size: 20px;
+}
+
+
+//수정 전 howto
 .imgbox{
 }
 
