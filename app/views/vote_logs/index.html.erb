@@ -1,12 +1,20 @@
-<div class="container">
+
     <br>
     <br>
-    <h2 class="text-center">고려대학교 총학생회 선거 로또</h2>
+    <h2>임시 헤더 </h2>
     <br>
     <%# 현재 투표율 %>
-    <div class="d-flex">
-      <p class="votenum">응모자 수 :</p><p id="counter1"></p>
+    <div class="votenum_box d-flex justify-content-center">
+      <div class="votenum_text">
+        투표와 함께하는 즐거움<br>
+        실시간 로또 참여인수
+        <%# 투표 인원수 %>
+        <p id="counter1"></p>
+        <button type="button" class="btn btn-outline-secondary btn_vote">응모하기</button>
+      </div>
+      
     </div>
+    <div class="container">
     <%# --------------참여방법 소개---------------- %>
     <h3>"어떻게 참여하나요?"</h3>
     <br>
@@ -101,7 +109,7 @@
         this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     
         if(this.count < this.target_count) {
-            this.timer = setTimeout(function() { self.counter(); }, 400);
+            this.timer = setTimeout(function() { self.counter(); }, 100);
         } else {
             clearTimeout(this.timer);
         }
