@@ -1,6 +1,7 @@
 class VoteLogsController < ApplicationController
   before_action :set_vote_log, only: [:show, :edit, :update, :destroy]
 
+
   # GET /vote_logs
   # GET /vote_logs.json
   def index
@@ -51,13 +52,30 @@ class VoteLogsController < ApplicationController
     end
   end
 
-
+  ##고려대학교 학생인지 확인 && 이미 참여한 기록은 없는지 확인
   def checkDouble
-   @studentID = params[:vote_log][:studentID]
-   @name = params[:vote_log][:name]
-   puts "double checking"
-   puts @studentID
-   puts @name
+    puts "double checking"
+    @studentID = params[:studentID]
+    @name = params[:name]
+
+    @result = {IsStudent: 0, IsFirst: 0, canWrite: 0}
+
+    #고려대학교 학생인지 확인
+    @resultInDB = SchoolDB.find(studentID: @studentID)
+
+    if @resultInDB     #학교 db 내에 입력한 학번이 존재
+      if @resultInDB.name == @name  #학교 db 내에 입력한 학번과 이름이 일치
+        @result[:IsStudent] = 1
+      
+        #중복확인(교내 db와 일치하는 경우에만 실행하기 위함)
+        if !VoteLog.find(studentID: @studentID) #응모 기록 db에 입력한 학번이 존재하는지
+          @result[:IsFirst] = 1
+          @result[:canWrite] = 1      
+        end
+      end
+    end
+
+   render json: @result
   end
 
   # DELETE /vote_logs/1

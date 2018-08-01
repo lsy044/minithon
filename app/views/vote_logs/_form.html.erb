@@ -15,19 +15,20 @@
     <div class="field">
       <!--<%= f.label :studentID %>-->
       <p>학번</p>
-      <%= f.text_field :studentID %>
+      <%= f.text_field :studentID, id: "studentID"%>
     </div>
 
     <div class="field">
       <!--<%= f.label :name %>-->
       <p>이름</p>
-      <%= f.text_field :name %>    
+      <%= f.text_field :name, id: "name" %>    
     </div>
+  <p id = "check-warning">본인 인증과 중복 확인을 위해 인증 버튼을 눌러주세요!</p>
+  <button type = "button" id = "checkButton">인증하기</button>
+  <!--ajax??, new인 경우에만 나와야 함!   Check if record exists from controller in Rails-->
+  <!--<%= link_to '중복확인',controller: "vote_logs", action: "checkDouble"%>-->
+  <!--<%=button_to '중복확인', type: "button", controller: "vote_logs", action: "checkDouble", id: "checkButton"%>-->
 
-
-  <!--ajax??, new인 경우에만 나와야 함!   Check if record exists from controller in Rails
-  <%= button_to '중복확인', action: "checkDouble", method: :post %>
--->
   <div class="field">
     <!--<%= f.label :image %>-->
     <p>인증사진</p>
@@ -35,11 +36,56 @@
       accept: 'image/png, image/gif, image/jpeg' %>
   </div>
 
-  <!--비밀번호 추가하기-->
+  
+
+  <!--핸드폰, 비밀번호 추가하기-->
 
 
 <!--중복 확인된 경우에만 활성화!  안 된 경우에는 중복확인을 해 주세요 나타나있게 하기-->
   <div class="actions">
-    <%= f.submit "응모하기"%>
+    <%= f.submit "응모하기", id: "submitButton"%>
   </div>
 <% end %>
+
+
+
+<script>
+  document.getElementById("submitButton").disabled = true;
+
+
+  document.getElementById("checkButton").addEventListener("click", function(){
+    document.getElementById("check-warning").textContent= "클릭했다!";
+    console.log(10)
+    
+    //get element by ID
+    var studentIdIn = document.getElementById("studentID").value;
+    var nameIn = document.getElementById("name").value;
+
+    $.ajax({
+      async : true,
+      type : "POST",
+      data : {studentID : studentIdIn, name : nameIn},
+      url : "checkDouble",
+      dataType : "json",
+      success : function(){
+        if (data["IsStudent"] == 0){
+            document.getElementById("check-warning").innerHTML = "본교 학생이 아닙니다ㅠㅠ";
+        }
+
+        else if (data["IsFirst"] == 0){
+            document.getElementById("check-warning").innerHTML = "이미 참여하셨습니다ㅠㅠ";
+        }
+
+        else if (data["IsStudent"] ==1 && data["IsFirst"] == 1){
+          document.getElementById("check-warning").innerHTML = "인증이 성공했습니다!";
+          document.getElementById("submitButton").disabled = false;
+        }
+        
+    }
+    })
+    
+  })
+
+
+
+</script>
