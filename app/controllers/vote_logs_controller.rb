@@ -57,25 +57,32 @@ class VoteLogsController < ApplicationController
     puts "double checking"
     @studentID = params[:studentID]
     @name = params[:name]
+    puts @studentID
+    puts @name
 
-    @result = {IsStudent: 0, IsFirst: 0, canWrite: 0}
+    $result = {IsStudent: 0, IsFirst: 0, canWrite: 0}
 
-    #고려대학교 학생인지 확인
-    @resultInDB = SchoolDB.find(studentID: @studentID)
+    #고려대학교 학생인지 확인   Thing.exists?(params[:id])
+    #@resultInDB = SchoolDb.where(studentID: @studentID)
+    #puts @resultInDB.pluck(:studentID)##################################################
 
-    if @resultInDB     #학교 db 내에 입력한 학번이 존재
-      if @resultInDB.name == @name  #학교 db 내에 입력한 학번과 이름이 일치
-        @result[:IsStudent] = 1
-      
+      #학교 db 내에 입력한 학번이 존재
+      if SchoolDb.exists?(:name => @name)  #학교 db 내에 입력한 학번과 이름이 일치
+        $result[:IsStudent] = 1
+                
         #중복확인(교내 db와 일치하는 경우에만 실행하기 위함)
-        if !VoteLog.find(studentID: @studentID) #응모 기록 db에 입력한 학번이 존재하는지
-          @result[:IsFirst] = 1
-          @result[:canWrite] = 1      
+        if !VoteLog.exists?(:studentID => @studentID) #응모 기록 db에 입력한 학번이 존재하는지
+          $result[:IsFirst] = 1
+          $result[:canWrite] = 1    
         end
       end
-    end
+  
+      puts $result
 
-   render json: @result
+    respond_to do |format|
+      format.json {render json: @result}
+    end
+   
   end
 
   # DELETE /vote_logs/1
@@ -96,6 +103,6 @@ class VoteLogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vote_log_params
-      params.require(:vote_log).permit(:studentID, :name, :image)
+      params.require(:vote_log).permit(:studentID, :name, :image, :password, :phoneNum)
     end
 end

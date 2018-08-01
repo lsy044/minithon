@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801154523) do
+ActiveRecord::Schema.define(version: 20180801165004) do
 
   create_table "school_dbs", force: :cascade do |t|
     t.string   "studentID"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "log_id"
+    t.index ["log_id"], name: "index_school_dbs_on_log_id"
   end
 
   create_table "vote_logs", force: :cascade do |t|

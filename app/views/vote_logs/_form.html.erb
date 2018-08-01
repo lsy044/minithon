@@ -19,15 +19,21 @@
     </div>
 
     <div class="field">
-      <!--<%= f.label :name %>-->
       <p>이름</p>
       <%= f.text_field :name, id: "name" %>    
     </div>
   <p id = "check-warning">본인 인증과 중복 확인을 위해 인증 버튼을 눌러주세요!</p>
   <button type = "button" id = "checkButton">인증하기</button>
-  <!--ajax??, new인 경우에만 나와야 함!   Check if record exists from controller in Rails-->
-  <!--<%= link_to '중복확인',controller: "vote_logs", action: "checkDouble"%>-->
-  <!--<%=button_to '중복확인', type: "button", controller: "vote_logs", action: "checkDouble", id: "checkButton"%>-->
+  
+    <div class="field">
+      <p>핸드폰 번호</p>
+      <%= f.text_field :phoneNum, id: "phoneNum"%>
+    </div>
+
+     <div class="field">
+      <p>비밀번호</p>     <!--비밀번호 id 잘 들어갔는지 확인!-->
+      <%= f.password_field :password, id: "password"%>
+    </div>
 
   <div class="field">
     <!--<%= f.label :image %>-->
@@ -36,14 +42,11 @@
       accept: 'image/png, image/gif, image/jpeg' %>
   </div>
 
-  
-
-  <!--핸드폰, 비밀번호 추가하기-->
-
 
 <!--중복 확인된 경우에만 활성화!  안 된 경우에는 중복확인을 해 주세요 나타나있게 하기-->
-  <div class="actions">
+  <div class="actions" id = "buttonDiv">
     <%= f.submit "응모하기", id: "submitButton"%>
+    <p>아직 인증하지 않았습니다</p>
   </div>
 <% end %>
 
@@ -68,17 +71,26 @@
       url : "checkDouble",
       dataType : "json",
       success : function(){
-        if (data["IsStudent"] == 0){
+
+
+        //json file access 어떻게?
+        var retVal = "<%=$result%>"
+
+        console.log("<%=$result%>");
+        console.log(retVal["IsStudent"]);
+
+        if (retVal["IsStudent"] == 0){
             document.getElementById("check-warning").innerHTML = "본교 학생이 아닙니다ㅠㅠ";
         }
 
-        else if (data["IsFirst"] == 0){
+        else if (retVal["IsFirst"] == 0){
             document.getElementById("check-warning").innerHTML = "이미 참여하셨습니다ㅠㅠ";
         }
 
-        else if (data["IsStudent"] ==1 && data["IsFirst"] == 1){
+        else if (retVal["IsStudent"] ==1 && retVal["IsFirst"] == 1){
           document.getElementById("check-warning").innerHTML = "인증이 성공했습니다!";
           document.getElementById("submitButton").disabled = false;
+          document.getElementById("buttonDiv").removeChild(p);
         }
         
     }
