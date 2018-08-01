@@ -11,22 +11,35 @@
     </div>
   <% end %>
 
+
+    <div class="field">
+      <!--<%= f.label :studentID %>-->
+      <p>학번</p>
+      <%= f.text_field :studentID %>
+    </div>
+
+    <div class="field">
+      <!--<%= f.label :name %>-->
+      <p>이름</p>
+      <%= f.text_field :name %>    
+    </div>
+
+
+  <!--ajax??, new인 경우에만 나와야 함!   Check if record exists from controller in Rails
+  <%= button_to '중복확인', action: "checkDouble", method: :post %>
+-->
   <div class="field">
-    <%= f.label :studentID %>
-    <%= f.text_field :studentID %>
+    <!--<%= f.label :image %>-->
+    <p>인증사진</p>
+    <%= f.file_field :image,
+      accept: 'image/png, image/gif, image/jpeg' %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <!--비밀번호 추가하기-->
 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.text_field :image %>
-  </div>
 
+<!--중복 확인된 경우에만 활성화!  안 된 경우에는 중복확인을 해 주세요 나타나있게 하기-->
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "응모하기"%>
   </div>
 <% end %>

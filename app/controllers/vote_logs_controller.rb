@@ -51,6 +51,15 @@ class VoteLogsController < ApplicationController
     end
   end
 
+
+  def checkDouble
+   @studentID = params[:vote_log][:studentID]
+   @name = params[:vote_log][:name]
+   puts "double checking"
+   puts @studentID
+   puts @name
+  end
+
   # DELETE /vote_logs/1
   # DELETE /vote_logs/1.json
   def destroy

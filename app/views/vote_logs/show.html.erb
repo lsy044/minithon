@@ -15,5 +15,20 @@
   <%= @vote_log.image %>
 </p>
 
+
+
+
+<!--지울 때 비밀번호 맞는지 확인!
+
+var person = prompt("Please enter your name", "Harry Potter");
+
+if (person != null) {
+    document.getElementById("demo").innerHTML =
+    "Hello " + person + "! How are you today?";
+}
+
+-->
+
+<%= link_to 'Destroy', @vote_log, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_vote_log_path(@vote_log) %> |
 <%= link_to 'Back', vote_logs_path %>
