@@ -26,6 +26,18 @@
         return false;
         });
     });
+    jQuery(function($) {
+        $("body").css("display", "none");
+        $("body").fadeIn(2000);
+        $("a.transition").click(function(event){
+        event.preventDefault();
+        linkLocation = this.href;
+        $("body").fadeOut(1000, redirectPage);
+        });
+        function redirectPage() {
+        window.location = linkLocation;
+        }
+    });
   </script>
 </head>
 <body>
@@ -54,7 +66,7 @@
         <a class="nav-link" href="#">결과를 확인하세요!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">궁금한 게 있어요!</a>
+        <a class="nav-link" href="home/faq">궁금한 게 있어요!</a>
       </li>       
     </ul>
   </div>  
@@ -95,7 +107,8 @@
 
 </div>
 
-
+<br>
+<br>
 <a href="#" class="scrollToTop">Top</a>
 <br>
 <br>
