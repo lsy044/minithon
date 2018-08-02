@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'vote_logs/checkDouble' => 'vote_logs#checkDouble'
   resources :pledges
   get 'home/index'
-
+  root 'home#index'
+  get 'home/faq'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
