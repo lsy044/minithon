@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20180801165004) do
 
+  create_table "pledges", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.text     "content2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+  end
+
   create_table "school_dbs", force: :cascade do |t|
     t.string   "studentID"
     t.string   "name"

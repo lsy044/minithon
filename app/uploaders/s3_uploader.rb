@@ -11,7 +11,7 @@ class S3Uploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     #"uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "uploads"
+    "uploads/#{model.class.to_s.underscore}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -34,6 +34,24 @@ class S3Uploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
+  version :detail do
+    process resize_to_fit: [600, 10000]
+  end
+  version :main do
+      process resize_to_fill: [240, 180], :if => :horizontal?
+      process resize_to_fill: [240, 320], :if => :vertical?
+  end
+
+  def horizontal?(new_file)
+    image = MiniMagick::Image.open(self.file.file)
+    true if image[:height] < image[:width]
+  end
+  
+  def vertical?(new_file)
+    image = MiniMagick::Image.open(self.file.file)
+    true if image[:height] > image[:width]
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
@@ -42,7 +60,8 @@ class S3Uploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-     "#{model.studentID}"
-  end
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
+
 end
