@@ -1,3 +1,4 @@
+require 'json'
 class VoteLogsController < ApplicationController
   before_action :set_vote_log, only: [:show, :edit, :update, :destroy]
 
@@ -60,7 +61,7 @@ class VoteLogsController < ApplicationController
     puts @studentID
     puts @name
 
-    $result = {IsStudent: 0, IsFirst: 0, canWrite: 0}
+    $result = {"IsStudent" => 0, "IsFirst" => 0, "canWrite" => 0}
 
     #고려대학교 학생인지 확인   Thing.exists?(params[:id])
     #@resultInDB = SchoolDb.where(studentID: @studentID)
@@ -77,11 +78,15 @@ class VoteLogsController < ApplicationController
         end
       end
   
+      $result = $result.to_json
       puts $result
 
     respond_to do |format|
-      format.json {render json: @result}
+      format.json {render json: $result}
     end
+
+    #$result = $result.to_json
+    #puts "json 실행" + $result
    
   end
 

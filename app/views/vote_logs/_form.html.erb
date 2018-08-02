@@ -57,9 +57,7 @@
 
 
   document.getElementById("checkButton").addEventListener("click", function(){
-    document.getElementById("check-warning").textContent= "클릭했다!";
-    console.log(10)
-    
+      
     //get element by ID
     var studentIdIn = document.getElementById("studentID").value;
     var nameIn = document.getElementById("name").value;
@@ -70,27 +68,24 @@
       data : {studentID : studentIdIn, name : nameIn},
       url : "checkDouble",
       dataType : "json",
-      success : function(){
+      success : function(data){
+        
+        console.log(data);
+      
+      
 
-
-        //json file access 어떻게?
-        var retVal = "<%=$result%>"
-
-        console.log("<%=$result%>");
-        console.log(retVal["IsStudent"]);
-
-        if (retVal["IsStudent"] == 0){
+        if (data["IsStudent"] == 0){
             document.getElementById("check-warning").innerHTML = "본교 학생이 아닙니다ㅠㅠ";
         }
 
-        else if (retVal["IsFirst"] == 0){
+        else if (data["IsFirst"] == 0){
             document.getElementById("check-warning").innerHTML = "이미 참여하셨습니다ㅠㅠ";
         }
 
-        else if (retVal["IsStudent"] ==1 && retVal["IsFirst"] == 1){
+        else if (data["IsStudent"] ==1 && data["IsFirst"] == 1){
           document.getElementById("check-warning").innerHTML = "인증이 성공했습니다!";
           document.getElementById("submitButton").disabled = false;
-          document.getElementById("buttonDiv").removeChild(p);
+          //document.getElementById("buttonDiv").removeChild("p");
         }
         
     }
