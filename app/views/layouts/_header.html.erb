@@ -9,6 +9,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+    //Check to see if the window is top if not then display button
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('.scrollToTop').fadeIn();
+            } else {
+                $('.scrollToTop').fadeOut();
+            }
+        });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+        });
+    });
+  </script>
 </head>
 <body>
 
@@ -45,4 +63,40 @@
 <div class="container-fluid">
   <h3>Collapsible Navbar</h3>
   <p>Click on th button in the top right corner to reveal the navigation links.</p>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <<h3>Collapsible Navbar</h3>3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+
+  <h3>Collapsible Navbar</h3>
+  <h3>Collapsible Navbar</h3>
+
 </div>
+
+
+<a href="#" class="scrollToTop">Top</a>
+<br>
+<br>
+<br>
