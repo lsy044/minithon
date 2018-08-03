@@ -1,35 +1,53 @@
-<body class="container">
-  <p id="notice"><%= notice %></p>
- 
+
+<p id="notice"><%= notice %></p>
+<div class="container">
   <table>
     <td><%= image_tag("#{@pledge.image}", style: "height:30%; width: auto;") %></td>
   </table>
 
-  <p>
-    <strong>Q1. 안녕하세요! 1줄 소개 부탁드릴께요 ^^</strong>
-  </p>
+  <div class="first_pledge">
+    <p>
+      <strong>Q1. 첫 번재 공약</strong>
+    </p>
 
-  <p>
-    <%= @pledge.title %>
-  </P>
+    <p>
+      제목: <%= @pledge.title %>
+    </P>
 
-  <p>
-    <strong>Q2. 주요 공약들을 먼저 소개해주세요! </strong>
-  </p>
+    <p>
+      세부 설명: <%= @pledge.content %>
+    </p>
+  </div>
 
-  <p>
-    <%= @pledge.content %>
-  </p>
+  <div class="second_pledge">
+    <p>
+      <strong>Q2. 두 번재 공약</strong>
+    </p>
 
-  <p>
-    <strong>Q3. 세부 공약들도 함께 안내해주세요! </strong>
-  </p>
+    <p>
+      제목: <%= @pledge.title %>
+    </P>
 
-  <p>
-    <%= @pledge.content2 %>
-  </p>
+    <p>
+      세부 설명: <%= @pledge.content %>
+    </p>
+  </div>
 
-</body>
+  <div class="third_pledge">
+    <p>
+      <strong>Q3. 세 번재 공약</strong>
+    </p>
+
+    <p>
+      제목: <%= @pledge.title %>
+    </P>
+
+    <p>
+      세부 설명: <%= @pledge.content %>
+    </p>
+  </div>
+
+</div>
 
 <footer class="navbar fixed-bottom navbar-light bg-light">
   <%= link_to '수정', edit_pledge_path(@pledge) %> |

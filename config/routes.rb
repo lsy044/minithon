@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pledgeintros
   resources :pledges
   get 'home/index'
   root 'home#index'
