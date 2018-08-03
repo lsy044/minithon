@@ -1,5 +1,11 @@
-<p id="notice"><%= notice %></p>
 
+<%= link_to '응모하기', new_vote_log_path %>
+
+<% @vote_logs.each do |vote_log| %>
+ <%= image_tag vote_log.image %>
+<% end %>
+<!--
+<p id="notice"><%= notice %></p>
 <h1>Vote Logs</h1>
 
 <table>
@@ -29,3 +35,5 @@
 <br>
 
 <%= link_to 'New Vote Log', new_vote_log_path %>
+
+-->
