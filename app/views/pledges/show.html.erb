@@ -35,8 +35,8 @@
   </script>
 
   <style>
-    .inner_banner {
-      height:30%; 
+    .banner {
+      height:auto; 
       width: 100%;
     }
   </style>
@@ -44,12 +44,10 @@
 <head>
 
 <body>
-  <div class="">
-
     <p id="notice"><%= notice %></p>    
-            <%= image_tag("#{@pledge.image2}", class: "inner_banner")%>
+            <%= image_tag("#{@pledge.image2}", class: "banner")%>
             <%# <div style="background-color: #7D2222; width: 100%; height: 5px; margin-top: 20px; "></div> %>
-            <p style="text-align: center; font-size: 40px; margin-top: 20px;"><strong>[ "클릭"으로 알아보는 세부 공약! ]</strong></p>
+            <p style="text-align: center; font-size: 40px; margin-top: 7%;"><strong> "클릭"으로 알아보는 세부 공약! </strong></p>
             <br><br><br>
             <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
                 <p id="spreadBtn1" class="btn01" style="font-size: 40px"><strong> 하나! </strong><%= @pledge.title %></p>
@@ -80,9 +78,8 @@
                     <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
                 <% end %>
             </div>
-</div>
 </body>
-<footer class="navbar fixed-bottom navbar-light bg-light">
+<footer class="navbar fixed-bottom navbar-light bg-light" style="height: 5%; background-color: #7D2222;">
   <%= link_to '수정', edit_pledge_path(@pledge) %> |
   <%= link_to '삭제', @pledge, method: :delete, data: { confirm: '관리자님 지우시겠어요?' } %> |
   <%= link_to '뒤로가기', pledges_path %> 

@@ -4,31 +4,20 @@
     ul {
       list-style: none;
       }
-    .Banner {
-        height: auto;
-        width: 100%;
-    }
   </style>
   </HEAD>
  
   <BODY>
     <p id="notice"><%= notice %></p>
-    
-    <div class="container">
-        <table>
             <% @pledges.each do |pledge| %>
-                <tr>
-                <td><%= link_to image_tag("#{pledge.image}", class: "Banner"), pledge %></td>
-                </tr>
-        </table>
+            <%= link_to image_tag("#{pledge.image}", style:"margin-bottom: 7%; width: 100%;"), pledge %>
                 <%# <%= link_to '확인', pledge | %>
                 <%# <%= link_to '변경', edit_pledge_path(pledge) %>
                 <%# <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
             <br><br>
             <% end %>
-    </div>
   </BODY>
 
-<footer class="navbar fixed-bottom navbar-light bg-light">
+<footer class="navbar fixed-bottom navbar-light bg-light" style="height: 5%; background-color: #7D2222;">
     <%= link_to '공약 포스터 및 상세 공약 등록하기', new_pledge_path, style:"text-aling: center;" %>
 </footer>
