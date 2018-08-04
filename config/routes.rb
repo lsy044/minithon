@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pledgenews
   resources :pledges
   get 'home/index'
 
