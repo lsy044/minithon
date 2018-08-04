@@ -1,0 +1,31 @@
+<p id="fundings"><%= notice %></p>
+
+<h1>후원해주신 분들</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>후원해주신 물품</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fundings.each do |funding| %>
+      <tr>
+        <td><%= funding.name %></td>
+        <td><%= funding.given %></td>
+        <td><%= link_to '자세히보기', funding %></td>
+        <td><%= link_to '편집', edit_funding_path(funding) %></td>
+        <td><%= link_to '삭제', funding, method: :delete, data: { confirm: '삭제하시겠습니까?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<button><%= link_to '새로운 명단 작성하기', new_funding_path %></button> <br><br>
+
+<a href="https://project-cho-creative12.c9users.io/help/support"><button>후원방법</button></a>

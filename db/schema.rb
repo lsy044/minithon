@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180803041654) do
+ActiveRecord::Schema.define(version: 20180804120757) do
+
+  create_table "fundings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "given"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pledges", force: :cascade do |t|
     t.string   "title"
@@ -26,8 +33,6 @@ ActiveRecord::Schema.define(version: 20180803041654) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "log_id"
-    t.index ["log_id"], name: "index_school_dbs_on_log_id"
   end
 
   create_table "vote_logs", force: :cascade do |t|
