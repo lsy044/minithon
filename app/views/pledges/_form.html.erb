@@ -49,6 +49,12 @@
     <%= f.file_field :image,
         accept: 'image/png,image/gif,image/jpeg' %>
   </div>
+
+    <div class="field">
+    <%= f.label :image2, '이미지' %>
+    <%= f.file_field :image2,
+        accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
   
   <div class="actions">
     <%= f.submit %>

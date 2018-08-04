@@ -2,32 +2,60 @@
   <HEAD>
 
   <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="myscripts.js"></script>
   <script>
+
   $(document).ready(function(){
-      $("#spreadBtn1").click(function(){
-          if($("#hiddenList1").is(":visible")){
-              $("#hiddenList1").slideUp();
+      $(".spreadBtn1").click(function(){
+          if($(".hiddenList1").is(":visible")){
+              $(".hiddenList1").slideUp();
           }else{
-              $("#hiddenList1").slideDown();
+              $(".hiddenList1").slideDown();
           }
       });
   }); 
   $(document).ready(function(){
-      $("#spreadBtn2").click(function(){
-          if($("#hiddenList2").is(":visible")){
-              $("#hiddenList2").slideUp();
+      $(".spreadBtn2").click(function(){
+          if($(".hiddenList2").is(":visible")){
+              $(".hiddenList2").slideUp();
           }else{
-              $("#hiddenList2").slideDown();
+              $(".hiddenList2").slideDown();
           }
       });
   });
   $(document).ready(function(){
-      $("#spreadBtn3").click(function(){
-          if($("#hiddenList3").is(":visible")){
-              $("#hiddenList3").slideUp();
+      $(".spreadBtn3").click(function(){
+          if($(".hiddenList3").is(":visible")){
+              $(".hiddenList3").slideUp();
           }else{
-              $("#hiddenList3").slideDown();
+              $(".hiddenList3").slideDown();
+          }
+      });
+  });
+
+  $(document).ready(function(){
+      $(".btn01").click(function(){
+          if($(".example01").is(":visible")){
+              $(".example01").slideUp();
+          }else{
+              $(".example01").slideDown();
+          }
+      });
+  }); 
+  $(document).ready(function(){
+      $(".btn02").click(function(){
+          if($(".example02").is(":visible")){
+              $(".example02").slideUp();
+          }else{
+              $(".example02").slideDown();
+          }
+      });
+  });
+  $(document).ready(function(){
+      $(".btn03").click(function(){
+          if($(".example03").is(":visible")){
+              $(".example03").slideUp();
+          }else{
+              $(".example03").slideDown();
           }
       });
   });
@@ -51,6 +79,7 @@
             <% @pledges.each do |pledge| %>
                 <tr>
                 <td><%= link_to image_tag("#{pledge.image}", class: "Banner"), pledge %></td>
+                <td><%= link_to image_tag("#{pledge.image2}", class: "Banner"), pledge %></td>
                 </tr>
         </table>
                 <%= link_to '확인', pledge %> |
