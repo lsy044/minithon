@@ -45,12 +45,12 @@
       <p id="notice"><%= notice %></p>
               <div class="banner_bar0"></div>
               <p class="banner_intro"><strong> "클릭"으로 알아보는 세부 공약! </strong></p>    
-              <%= image_tag("#{@pledge.image2}", class: "banner_image")%>
+              <%= image_tag("#{@pledgenewee.image2}", class: "banner_image")%>
               <br>
               <div class="banner_bar1"></div>
-                  <p id="spreadBtn1" class="fas fa-arrow-alt-circle-right btn01"><strong> 첫 번째:  </strong><%= @pledge.title %></p>
+                  <p id="spreadBtn1" class="fas fa-arrow-alt-circle-right btn01"><strong> 첫 번째:  </strong><%= @pledgenewee.title %></p>
               <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded">
-                  <% @list = @pledge.content.split(",") %>
+                  <% @list = @pledgenewee.content.split(",") %>
                   <% i = 0 %>
                   <% for x in @list %>
                       <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
@@ -58,9 +58,9 @@
               </div>
 
               <div class="banner_bar2"></div>
-              <p id="spreadBtn2" class="fas fa-arrow-alt-circle-right btn02"><strong> 두 번째:  </strong><%= @pledge.title2 %></p>
+              <p id="spreadBtn2" class="fas fa-arrow-alt-circle-right btn02"><strong> 두 번째:  </strong><%= @pledgenewee.title2 %></p>
               <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded">
-                  <% @list2 = @pledge.content2.split(",") %>
+                  <% @list2 = @pledgenewee.content2.split(",") %>
                   <% i = 0 %>
                   <% for x in @list2 %>
                       <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
@@ -68,9 +68,9 @@
               </div>
 
               <div class="banner_bar3"></div>
-              <span id="spreadBtn3" class="fas fa-arrow-alt-circle-right btn03"><strong> 세 번째:  </strong><%= @pledge.title3 %></span>
+              <span id="spreadBtn3" class="fas fa-arrow-alt-circle-right btn03"><strong> 세 번째:  </strong><%= @pledgenewee.title3 %></span>
               <div id="hiddenList3" class="example03 shadow p-3 mb-5 bg-light rounded">
-                  <% @list3 = @pledge.content3.split(",") %>
+                  <% @list3 = @pledgenewee.content3.split(",") %>
                   <% i = 0 %>
                   <% for x in @list3 %>
                       <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
@@ -78,9 +78,9 @@
               </div>
 
     <div class="banner_footer navbar fixed-bottom navbar-light">
-      <%= link_to '수정', edit_pledge_path(@pledge), class:"banner_footer_edit"%> |
-      <%= link_to '삭제', @pledge, method: :delete, data: { confirm: '관리자님 지우시겠어요?' }, class:"banner_footer_delete" %> |
-      <%= link_to '뒤로가기', pledges_path, class:"banner_footer_back" %> 
+      <%= link_to '수정', edit_pledgenewee_path(@pledgenewee), class:"banner_footer_edit"%> |
+      <%= link_to '삭제', @pledgenewee, method: :delete, data: { confirm: '관리자님 지우시겠어요?' }, class:"banner_footer_delete" %> |
+      <%= link_to '뒤로가기', pledgenewee_path, class:"banner_footer_back" %> 
     </div>
   </div>
 </body>

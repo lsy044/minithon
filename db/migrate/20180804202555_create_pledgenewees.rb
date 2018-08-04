@@ -1,6 +1,7 @@
-class CreatePledges < ActiveRecord::Migration[5.0]
+class CreatePledgenewees < ActiveRecord::Migration[5.0]
   def change
-    create_table :pledges do |t|
+    create_table :pledgenewees do |t|
+      t.string :name
       t.string :title
       t.text :content
       t.string :title2
