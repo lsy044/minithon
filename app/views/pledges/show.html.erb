@@ -44,7 +44,7 @@
 <head>
 
 <body>
-  <div class="container">
+  <div class="">
 
     <p id="notice"><%= notice %></p>    
             <%= image_tag("#{@pledge.image2}", class: "inner_banner")%>
@@ -53,7 +53,7 @@
             <br><br><br>
             <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
                 <p id="spreadBtn1" class="btn01" style="font-size: 40px"><strong> 하나! </strong><%= @pledge.title %></p>
-            <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+            <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
                 <% @list = @pledge.content.split(",") %>
                 <% i = 0 %>
                 <% for x in @list %>
@@ -63,7 +63,7 @@
 
             <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
             <p id="spreadBtn2" class="btn02" style="font-size: 40px"><strong> 둘! </strong><%= @pledge.title2 %></p>
-            <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+            <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
                 <% @list2 = @pledge.content2.split(",") %>
                 <% i = 0 %>
                 <% for x in @list2 %>
