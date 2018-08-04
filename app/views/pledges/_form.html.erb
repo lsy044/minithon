@@ -12,13 +12,19 @@
   <% end %>
 
     <div class="field">
+      <p>선거본부 후보팀</p>
+      <%= f.label :name, '후보팀 : ' %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
       <p>첫 번재 공약</p>
       <%= f.label :title, '제목 : ' %>
       <%= f.text_field :title %>
     </div>
   
     <div class="field">
-      <%= f.label :content, '세부 설명: ' %>
+      <%= f.label :content, '세부 설명 : ' %>
       <%= f.text_area :content %>
     </div>
 
@@ -29,7 +35,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :content2, '세부 설명: '%>
+      <%= f.label :content2, '세부 설명 : '%>
       <%= f.text_area :content2 %>
     </div>
 
@@ -40,7 +46,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :content3, '세부 설명: '%>
+      <%= f.label :content3, '세부 설명 : '%>
       <%= f.text_area :content3 %>
     </div>
 

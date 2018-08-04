@@ -7,24 +7,56 @@
       ul {
         list-style: none;
         }
+
+      .poster_image{
+        width: 105%; 
+        height: 100%; 
+        margin-top: 3%;
+      }
+      
+      .poster_footer{
+        height: 5%; 
+        background-color: #7D2222; 
+        position:relative;
+      }
+
+      .poster_font {
+        color: white;
+      }
+
+      .poster_intro {
+        font-size: 200%;
+      }
+
+      .poster_bar {
+        margin-top: 10%; 
+        background-color: #7D2222; 
+        width: 60px; 
+        height: 5px;
+      }
     </style>
+      
   </head>
  
   <body>
-  <div class="col-9 container">
-    <div style="margin-top: 10%; background-color: #7D2222; width: 60px; height: 5px;"></div>
-      <p style="font-size: 30px"><strong> 올해의 선거본부 후보단을 소개합니다! </strong></p>
+  <div class="container">
+    <div class="poster_bar"></div>
+      <p class= "poster_intro"><strong> 올해의 선거본부 후보단을 소개합니다! </strong></p>
     <p id="notice"><%= notice %></p>
+    <div class="d-flex justify-content-around">
             <% @pledges.each do |pledge| %>
-            <div>
-            <%= link_to image_tag("#{pledge.image}", style:"position: relative; width: 70%; margin-top: 3%"), pledge %>
-                <%# <%= link_to '확인', pledge | %>
-                <%# <%= link_to '변경', edit_pledge_path(pledge) %>
-                <%# <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
-            <br><br>
+            <div class="poster_images">
+              <%= link_to image_tag("#{pledge.image}", class: "poster_image"), pledge %>
+                  <%# <%= link_to '확인', pledge | %>
+                  <%# <%= link_to '변경', edit_pledge_path(pledge) %>
+                  <%# <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
+              <br><br>
+            </div>
             <% end %>
-  <div class="navbar fixed-bottom navbar-light d-flex justify-content-center" style="height: 5%; background-color: #7D2222; position:relative;">
-    <%= link_to '공약 포스터 및 상세 공약 등록하기', new_pledge_path, style:"color: white;" %>
+    </div>
+    
+  <div class="poster_footer fixed-bottom navbar-light d-flex justify-content-center">
+    <%= link_to '공약 포스터 및 상세 공약 등록하기', new_pledge_path, class: "poster_font" %>
   </div>
 </div>
 </body>

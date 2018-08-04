@@ -34,6 +34,86 @@
   </script>
 
   <style>
+    .banner_intro {
+      font-size: 30px;
+    }
+    .banner_image {
+      height: auto; 
+      width: 100%;
+    }
+    .banner_footer {
+      height: 5%; 
+      background-color: #7D2222; 
+      position: relative; 
+      margin-top: 7%;
+    }
+    
+    .banner_footer_edit {
+      color: white;
+    }
+
+    .banner_footer_delete {
+      color: white;
+    }
+
+    .banner_footer_back {
+      color: white;
+    }
+
+    .banner_bar0 {
+      background-color: #7D2222; 
+      width: 60px; 
+      height: 5px; 
+      margin-top: 7%;
+    }
+
+    .banner_bar1 {
+      background-color: #7D2222; 
+      width: 60px; 
+      height: 5px; 
+      margin-top: 7%;
+    }
+
+    .banner_bar2 {
+      background-color: #7D2222; 
+      width: 60px; 
+      height: 5px; 
+      margin-top: 7%;
+    }
+
+    .banner_bar3 {
+      background-color: #7D2222; 
+      width: 60px; 
+      height: 5px; 
+      margin-top: 7%;
+    }
+
+    .btn03 {
+      font-size: 30px;
+    }
+
+    .btn02 {
+      font-size: 30px;
+    }
+
+    .btn01 {
+      font-size: 30px;
+    }
+
+    .example03 {
+      display: none; 
+      font-size: 20px;
+    }
+
+    .example02 {
+      display: none; 
+      font-size: 20px;
+    }
+
+    .example01 {
+      display: none; 
+      font-size: 20px;
+    }
   </style>
 
 <head>
@@ -41,14 +121,13 @@
 <body>
   <div class="col-9 container">
       <p id="notice"><%= notice %></p>
-              <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
-              <p style="font-size: 30px"><strong> "클릭"으로 알아보는 세부 공약! </strong></p>    
-              <%= image_tag("#{@pledge.image2}", style: "height: auto; width: 100%")%>
-              <%# <div style="background-color: #7D2222; width: 100%; height: 5px; margin-top: 20px; "></div> %>
+              <div class="banner_bar0"></div>
+              <p class="banner_intro"><strong> "클릭"으로 알아보는 세부 공약! </strong></p>    
+              <%= image_tag("#{@pledge.image2}", class: "banner_image")%>
               <br>
-              <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
-                  <p id="spreadBtn1" class="btn01" style="font-size: 30px"><strong> 하나! </strong><%= @pledge.title %></p>
-              <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
+              <div class="banner_bar1"></div>
+                  <p id="spreadBtn1" class="btn01"><strong> 하나! </strong><%= @pledge.title %></p>
+              <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded">
                   <% @list = @pledge.content.split(",") %>
                   <% i = 0 %>
                   <% for x in @list %>
@@ -56,9 +135,9 @@
                   <% end %>
               </div>
 
-              <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
-              <p id="spreadBtn2" class="btn02" style="font-size: 30px"><strong> 둘! </strong><%= @pledge.title2 %></p>
-              <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
+              <div class="banner_bar2"></div>
+              <p id="spreadBtn2" class="btn02"><strong> 둘! </strong><%= @pledge.title2 %></p>
+              <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded">
                   <% @list2 = @pledge.content2.split(",") %>
                   <% i = 0 %>
                   <% for x in @list2 %>
@@ -66,9 +145,9 @@
                   <% end %>
               </div>
 
-              <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
-              <p id="spreadBtn3" class="btn03" style="font-size: 30px"><strong> 셋! </strong><%= @pledge.title3 %></p>
-              <div id="hiddenList3" class="example03 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
+              <div class="banner_bar3"></div>
+              <p id="spreadBtn3" class="btn03"><strong> 셋! </strong><%= @pledge.title3 %></p>
+              <div id="hiddenList3" class="example03 shadow p-3 mb-5 bg-light rounded">
                   <% @list3 = @pledge.content3.split(",") %>
                   <% i = 0 %>
                   <% for x in @list3 %>
@@ -76,10 +155,10 @@
                   <% end %>
               </div>
 
-    <div class="navbar fixed-bottom navbar-light" style="height: 5%; background-color: #7D2222; position:relative;">
-      <%= link_to '수정', edit_pledge_path(@pledge), style:"color: white;" %> |
-      <%= link_to '삭제', @pledge, method: :delete, data: { confirm: '관리자님 지우시겠어요?' }, style:"color: white;" %> |
-      <%= link_to '뒤로가기', pledges_path, style:"color: white;" %> 
+    <div class="banner_footer navbar fixed-bottom navbar-light">
+      <%= link_to '수정', edit_pledge_path(@pledge), class:"banner_footer_edit"%> |
+      <%= link_to '삭제', @pledge, method: :delete, data: { confirm: '관리자님 지우시겠어요?' }, class:"banner_footer_delete" %> |
+      <%= link_to '뒤로가기', pledges_path, class:"banner_footer_back" %> 
     </div>
   </div>
 </body>

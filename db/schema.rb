@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180804135523) do
+ActiveRecord::Schema.define(version: 20180804164205) do
 
   create_table "pledges", force: :cascade do |t|
+    t.string   "name"
     t.string   "title"
     t.text     "content"
     t.string   "title2"
