@@ -7,7 +7,7 @@ end
 
 
 #부트스트랩
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.1.3'
 
 #데이터베이스
 gem 'rails_db', '2.0.2'
