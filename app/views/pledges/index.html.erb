@@ -11,16 +11,20 @@
   </head>
  
   <body>
+  <div class="col-9 container">
+    <div style="margin-top: 10%; background-color: #7D2222; width: 60px; height: 5px;"></div>
+      <p style="font-size: 30px"><strong> 올해의 선거본부 후보단을 소개합니다! </strong></p>
     <p id="notice"><%= notice %></p>
             <% @pledges.each do |pledge| %>
-            <%= link_to image_tag("#{pledge.image}", style:"width: 100%;"), pledge %>
+            <div>
+            <%= link_to image_tag("#{pledge.image}", style:"position: relative; width: 70%; margin-top: 3%"), pledge %>
                 <%# <%= link_to '확인', pledge | %>
                 <%# <%= link_to '변경', edit_pledge_path(pledge) %>
                 <%# <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
             <br><br>
             <% end %>
-  </body>
-
-<footer class="navbar fixed-bottom navbar-light bg-light" style="height: 5%; background-color: #7D2222;">
-    <%= link_to '공약 포스터 및 상세 공약 등록하기', new_pledge_path, style:"text-aling: center;" %>
-</footer>
+  <div class="navbar fixed-bottom navbar-light d-flex justify-content-center" style="height: 5%; background-color: #7D2222; position:relative;">
+    <%= link_to '공약 포스터 및 상세 공약 등록하기', new_pledge_path, style:"color: white;" %>
+  </div>
+</div>
+</body>
