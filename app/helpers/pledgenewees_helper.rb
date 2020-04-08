@@ -1,2 +1,0 @@
-module PledgeneweesHelper
-end

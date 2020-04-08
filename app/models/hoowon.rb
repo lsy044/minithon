@@ -1,2 +1,0 @@
-class Hoowon < ApplicationRecord
-end
