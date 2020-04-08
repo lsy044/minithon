@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180804203407) do
-=======
-ActiveRecord::Schema.define(version: 20180804202758) do
->>>>>>> 35e816d957002120ba146282729d80c5a1be4fc9
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,6 +29,20 @@ ActiveRecord::Schema.define(version: 20180804202758) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "fundings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "given"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hoowons", force: :cascade do |t|
+    t.string   "name"
+    t.string   "given"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "lottos", force: :cascade do |t|
     t.integer  "totalnum"
     t.integer  "winnum"
@@ -43,7 +53,6 @@ ActiveRecord::Schema.define(version: 20180804202758) do
     t.text     "resultnum",   default: "--- []\n"
   end
 
-<<<<<<< HEAD
   create_table "pledgeintros", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -53,18 +62,6 @@ ActiveRecord::Schema.define(version: 20180804202758) do
     t.string   "image"
   end
 
-  create_table "pledges", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "image"
-    t.text     "content2"
-    t.string   "title2"
-    t.string   "title3"
-    t.text     "content3"
-    t.string   "image2"
-=======
   create_table "pledgenewees", force: :cascade do |t|
     t.string   "name"
     t.string   "title"
@@ -79,33 +76,18 @@ ActiveRecord::Schema.define(version: 20180804202758) do
     t.string   "image2"
   end
 
-  create_table "pledgenews", force: :cascade do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.string   "title2"
-    t.text     "content2"
-    t.string   "title3"
-    t.text     "content3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "image"
-    t.string   "image2"
-  end
-
   create_table "pledges", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.string   "title2"
     t.text     "content2"
-    t.string   "title3"
-    t.text     "content3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
+    t.string   "title2"
+    t.string   "title3"
+    t.text     "content3"
     t.string   "image2"
     t.string   "name"
->>>>>>> 35e816d957002120ba146282729d80c5a1be4fc9
   end
 
   create_table "routers", force: :cascade do |t|
