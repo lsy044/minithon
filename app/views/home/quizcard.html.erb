@@ -242,7 +242,7 @@ background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
     // show number of correct answers out of total
     // resultsContainer.innerHTML = `${numA} out of ${myQuestions.length}`;
     
-    const teamname = "<%= Pledgenewee.where(id:1).pluck(:Title).to_s.gsub('"','') %>";
+    const teamname = "<%= Pledgenewee.where(id:1).pluck(:name).to_s.gsub('"','') %>";
     const result = []
     const percentAA = numA/myQuestions.length*100
     const percentA = percentAA.toFixed(1)
@@ -409,8 +409,8 @@ background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
       }
     });
     // resultsContainer.innerHTML = `${numA} out of ${myQuestions.length}`;
-    const teamname1 = "<%= Pledgenewee.where(id:1).pluck(:Title).to_s.gsub('"','') %>";  
-    const teamname2 = "<%= Pledgenewee.where(id:2).pluck(:Title).to_s.gsub('"','') %>";
+    const teamname1 = "<%= Pledgenewee.where(id:1).pluck(:Name).to_s.gsub('"','') %>";  
+    const teamname2 = "<%= Pledgenewee.where(id:2).pluck(:Name).to_s.gsub('"','') %>";
       
     const result = []
     const percentAA = numA/myQuestions.length*100.
