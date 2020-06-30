@@ -94,13 +94,12 @@
     $.ajax({
       async : true,
       type : "POST",
-      data : {studentID : studentIdIn},
+      data : {studentID : studentIdIn, name : nameIn}, 
       url : "checkDouble",
       dataType : "json",
       success : function(data){
         
         console.log(data);
-      
       
         if (data["IsStudent"] == 0){
             document.getElementById("check-warning").innerHTML = "본교 학생이 아닙니다ㅠㅠ";

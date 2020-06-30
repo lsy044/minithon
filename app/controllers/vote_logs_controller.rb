@@ -2,7 +2,6 @@ require 'json'
 class VoteLogsController < ApplicationController
   before_action :set_vote_log, only: [:show, :edit, :update, :destroy]
 
-
   # GET /vote_logs
   # GET /vote_logs.json
   def index
